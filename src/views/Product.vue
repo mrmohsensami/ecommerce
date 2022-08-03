@@ -1,4 +1,13 @@
 <template>
+  <div>
+    <div id="modal__gallery" class="modal" v-show="isShowingModal">
+        <div class="modal__content">
+            <span class="modal__close" @click="closeModal">&times;</span>
+            <div class="modal__body" tabindex="0" @focusout="closeModal">
+                <img :src="modalImage" class="show__gallery">
+            </div>
+        </div>
+    </div>
   <main class="main">
       <div class="container">
           <ul class="breadcrumb">
@@ -31,6 +40,7 @@
                                     v-for="(slide, index) in gallerySlides"
                                     :key="index"
                                     :style="slideIndex === index ? 'display:block;' : 'display:none;'"
+                                    @click="showModal(slide.img)"
                                   />
                                 </div>
                             </div>
@@ -56,10 +66,12 @@
           </div>
       </div>
   </main>
+  </div>
 </template>
 
 <script>
 import moment, { duration } from 'moment'
+import '../assets/css/modal.css'
 
 export default {
   name: "Product",
@@ -81,7 +93,9 @@ export default {
         { img: require('../assets/img/slider/3.jpg') },
         { img: require('../assets/img/slider/3.jpg') },
       ],
-      slideIndex: 0
+      slideIndex: 0,
+      isShowingModal: false,
+      modalImage: null
     }
     
   },
@@ -97,6 +111,15 @@ export default {
     },
     currentSlide(index) {
       this.slideIndex = index
+    },
+    showModal(image) {
+      this.isShowingModal = true
+      this.modalImage = image
+      document.body.style.overflow = 'hidden'
+    },
+    closeModal() {
+      this.isShowingModal = false
+      document.body.style.overflow = 'unset'
     }
   },
   created() {
