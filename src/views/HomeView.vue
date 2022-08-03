@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="header__top">
-                <div class="header__top-content">
-                    <h1 class="header__top-h1">وب آموز : پلی برای یادگیری</h1>
-                    <p class="header__top-p">با کمترین هزینه حرفه ای شو</p>
-                </div>
-                <form class="header__form">
-                    <div class="header__search">
-                        <input type="text" class="header__serach-input" placeholder="جستجو کنید...">
-                        <button class="header__search-btn btn btn--brand btn--boxshadow"></button>
-                    </div>
-                </form>
+        <div class="header__top-content">
+            <h1 class="header__top-h1">وب آموز : پلی برای یادگیری</h1>
+            <p class="header__top-p">با کمترین هزینه حرفه ای شو</p>
+        </div>
+        <form class="header__form">
+            <div class="header__search">
+                <input type="text" class="header__serach-input" placeholder="جستجو کنید...">
+                <button class="header__search-btn btn btn--brand btn--boxshadow"></button>
             </div>
+        </form>
+    </div>
   <main class="main">
         <div class="container">
             <div class="slideshow">
@@ -79,6 +79,10 @@ import SwiperSlider from '../components/SwiperSlider'
 
 
 export default {
+  metaInfo: {
+      title: 'فروشگاه آنلاین صفحه اصلی',
+      titleTemplate: null
+  },
   name: "HomeView",
   components: {
     SwiperSlider

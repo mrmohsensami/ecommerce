@@ -10,6 +10,9 @@
 import BaseHeader from './components/BaseHeader'
 import BaseFooter from './components/BaseFooter'
 export default {
+  metaInfo: {
+      titleTemplate: '%s - فروشگاه آنلاین'
+  },
   data: () => ({
     isShowSideBar: false
   }),

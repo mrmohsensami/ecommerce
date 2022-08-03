@@ -122,7 +122,10 @@
 
 <script>
 export default {
-  name: "Category"
+    metaInfo: {
+        title: 'دسته بندی'
+    },
+    name: "Category"
 }
 </script>
 
