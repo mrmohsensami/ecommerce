@@ -107,6 +107,10 @@ export default {
         this.isBasketDropDown = false;
         this.isAccountDropDown = false;
       }
+      if (! event.target.closest('.navbar')) {
+        this.showSideBar = false;
+        this.$emit('show-sidebar', false);
+      }
     },
     toggleSidebar() {
         this.showSideBar = !this.showSideBar;
