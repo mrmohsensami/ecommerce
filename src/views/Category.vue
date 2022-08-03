@@ -19,8 +19,11 @@
                   </div>
                   <div class="box">
                       <div class="box__row">
-                          <div class="box__header">برند ها</div>
-                          <div class="box__filter">
+                          <div class="box__header"
+                            :class="{ 'box--togglable': !isBrandOpen }"
+                            @click="isBrandOpen = !isBrandOpen"
+                          >برند ها</div>
+                          <div class="box__filter" v-show="isBrandOpen">
                               <div class="box__content-container">
                                   <div class="box__content">
                                       <ul class="box__ul">
@@ -53,8 +56,11 @@
                   </div>
                   <div class="box">
                       <div class="box__row">
-                          <div class="box__header">برند ها</div>
-                          <div class="box__filter">
+                          <div class="box__header"
+                            :class="{ 'box--togglable': !isColorOpen }"
+                            @click="isColorOpen = !isColorOpen"
+                          >رنگ ها</div>
+                          <div class="box__filter" v-show="isColorOpen">
                               <div class="box__content-container">
                                   <div class="box__content">
                                       <ul class="box__ul">
@@ -125,7 +131,11 @@ export default {
     metaInfo: {
         title: 'دسته بندی'
     },
-    name: "Category"
+    name: "Category",
+    data: () => ({
+        isBrandOpen: true,
+        isColorOpen: true
+    })
 }
 </script>
 
