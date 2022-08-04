@@ -92,6 +92,20 @@
                                 <span class="rating__num">(65)</span>
                             </div>
                         </div>
+                        <div class="controls">
+                          <Multiselect
+                            :options="colorsOptions"
+                            v-model="selectedColor"
+                            placeholder="گزینه خود را انتخاب کنید"
+                          />
+                          <Multiselect
+                            :options="langOptions"
+                            v-model="selectedLang"
+                            :multiple="true"
+                            label="name"
+                            placeholder="گزینه خود را انتخاب کنید"
+                          />
+                        </div>
                       </div>
 </div>
 
@@ -104,10 +118,15 @@
 
 <script>
 import moment, { duration } from 'moment'
+import 'vue-multiselect/dist/vue-multiselect.min.css'
+import Multiselect from 'vue-multiselect'
 import '../assets/css/modal.css'
 
 export default {
   name: "Product",
+  components: {
+    Multiselect
+  },
   metaInfo: {
     title: 'نمایش محصول'
   },
@@ -137,7 +156,18 @@ export default {
       isShowingModal: false,
       modalImage: null,
       rateWidth: 0,
-      showRate: true
+      showRate: true,
+      selectedColor: '',
+      colorsOptions: ['قرمز', 'سبز', 'آبی'],
+      selectedLang: [],
+      langOptions: [
+        { name: 'Vue.js', language: 'JavaScript' },
+        { name: 'Adonis', language: 'JavaScript' },
+        { name: 'Rails', language: 'Ruby' },
+        { name: 'Sinatra', language: 'Ruby' },
+        { name: 'Laravel', language: 'PHP' },
+        { name: 'Phoenix', language: 'Elixir' }
+      ]
     }
     
   },
