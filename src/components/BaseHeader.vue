@@ -9,28 +9,27 @@
                     <div class="header__logo"><router-link :to="{ to: 'Home' }" class="header__logo-img"></router-link></div>
                     <div class="navbar__items" :class="{ 'navbar__items--is-active': showSideBar }">
                         <ul class="navbar__ul">
-                            <li class="navbar__item"><router-link :to="{ to: 'Home' }" class="navbar__link navbar__link--is-active">صفحه اصلی</router-link></li>
-                            <li class="navbar__item navbar__item--has-sub"><a href="" class="navbar__link">فروشگاه</a>
+                            <li class="navbar__item"><router-link :to="{ name: 'Home' }" class="navbar__link navbar__link--is-active">صفحه اصلی</router-link></li>
+                            <li class="navbar__item navbar__item--has-sub"><router-link :to="{ name: 'Category' }" href="" class="navbar__link">فروشگاه</router-link>
                                 <ul class="navbar__subset">
-                                    <li class="navbar__item"><a href="" class="navbar__link">زیر منو 1</a></li>
-                                    <li class="navbar__item"><a href="" class="navbar__link">زیر منو 2</a></li>
-                                    <li class="navbar__item navbar__item--has-sub"><a href="" class="navbar__link">زیر منو 3</a>
+                                    <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 1</router-link></li>
+                                    <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 2</router-link></li>
+                                    <li class="navbar__item navbar__item--has-sub"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 3</router-link>
                                         <ul class="navbar__subset">
-                                            <li class="navbar__item"><a href="" class="navbar__link">زیر منو 1</a></li>
-                                            <li class="navbar__item"><a href="" class="navbar__link">زیر منو 2</a></li>
-                                            <li class="navbar__item navbar__item--has-sub"><a href="" class="navbar__link">زیر منو 3</a>
+                                            <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 1</router-link></li>
+                                            <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 2</router-link></li>
+                                            <li class="navbar__item navbar__item--has-sub"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 3</router-link>
                                                 <ul class="navbar__subset">
-                                                    <li class="navbar__item"><a href="" class="navbar__link">زیر منو 1</a></li>
-                                                    <li class="navbar__item"><a href="" class="navbar__link">زیر منو 2</a></li>
-                                                    <li class="navbar__item"><a href="" class="navbar__link">زیر منو 3</a></li>
+                                                    <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 1</router-link></li>
+                                                    <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 2</router-link></li>
+                                                    <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 3</router-link></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="navbar__item"><router-link :to="{ name: 'About' }" class="navbar__link">درباره ما</router-link></li>
-                            <li class="navbar__item"><a href="" class="navbar__link">تماس باما</a></li>
+                            <li class="navbar__item"><router-link :to="{ name: 'about' }" class="navbar__link">درباره ما</router-link></li>
                         </ul>
                     </div>
                     <div class="navbar__action">
