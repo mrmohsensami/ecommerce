@@ -10,7 +10,7 @@
                     <div class="navbar__items" :class="{ 'navbar__items--is-active': showSideBar }">
                         <ul class="navbar__ul">
                             <li class="navbar__item"><router-link :to="{ name: 'Home' }" class="navbar__link navbar__link--is-active">صفحه اصلی</router-link></li>
-                            <li class="navbar__item navbar__item--has-sub"><router-link :to="{ name: 'Category' }" href="" class="navbar__link">فروشگاه</router-link>
+                            <li class="navbar__item navbar__item--has-sub"><router-link :to="{ name: 'Category' }" class="navbar__link">فروشگاه</router-link>
                                 <ul class="navbar__subset">
                                     <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 1</router-link></li>
                                     <li class="navbar__item"><router-link :to="{ name: 'Category' }" class="navbar__link">زیر منو 2</router-link></li>
@@ -29,7 +29,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="navbar__item"><router-link :to="{ name: 'about' }" class="navbar__link">درباره ما</router-link></li>
+                            <li class="navbar__item"><router-link :to="{ name: 'About' }" class="navbar__link">درباره ما</router-link></li>
                         </ul>
                     </div>
                     <div class="navbar__action">
@@ -39,18 +39,18 @@
                             <div class="header__dropdown" :class="{ 'header__dropdown--is-active': isBasketDropDown }">
                               <div class="header__dropdown-content header__dropdown-content--overflow">
                                   <div class="header__basket-item" v-for="item in 3" :key="item">
-                                      <a href="" class="header__basket-link">
+                                      <router-link :to="{ name: 'Product', params: { id: 1 } }" class="header__basket-link">
                                           <img :src="require('../assets/img/big-pic.jpg')" class="header__basket-img">
-                                      </a>
+                                      </router-link>
                                       <div class="header__basket-details">
-                                          <h5><a class="header__basket-title" href="">محصول شماره یک</a></h5>
+                                          <h5><router-link class="header__basket-title" :to="{ name: 'Product', params: { id: 1 } }" >محصول شماره یک</router-link></h5>
                                           <div class="header__basket-price">120000 تومان</div>
-                                          <a href="" class="header__basket-remove">حذف</a>
+                                          <router-link :to="{ name: 'Home' }" class="header__basket-remove">حذف</router-link>
                                       </div>
                                   </div>
                                   <div class="header__basket-btn">
-                                      <a href="cart.html" class="btn btn--boxshadow btn--brand w--100">ثبت و نهایی کردن
-                                          سفارش</a>
+                                      <router-link :to="{ name: 'Cart' }" class="btn btn--boxshadow btn--brand w--100">ثبت و نهایی کردن
+                                          سفارش</router-link>
                                   </div>
                               </div>
                           </div>
@@ -59,8 +59,8 @@
                             <span class="header__account-icon" @click="showDropDownAccount"></span>
                             <div class="header__dropdown header__dropdown--w200" :class="{ 'header__dropdown--is-active': isAccountDropDown }">
                                 <div class="header__dropdown-content">
-                                    <a href="sign-in.html" class="header__account-link">ورود</a>
-                                    <a href="sign-up.html" class="header__account-link">ثبت نام</a>
+                                    <router-link :to="{ name: 'Login' }" class="header__account-link">ورود</router-link>
+                                    <router-link :to="{ name: 'Register' }" class="header__account-link">ثبت نام</router-link>
                                 </div>
                             </div>
                         </div>
