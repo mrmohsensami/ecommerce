@@ -28,6 +28,7 @@
                   <div class="product__row">
                       <div class="prodcut__gallery">
                         <div class="gallery">
+                          <div class="gallery__slideshow">
                             <span class="gallery__count">
                               <span class="gallery__number1">{{ slideIndex + 1 }}</span>
                               <span class="gallery__number2">{{ gallerySlides.length }}</span>
@@ -60,6 +61,7 @@
                           </div>
 
                               </div>
+                          </div>
                           </div>
                         </div>
                     </div>
@@ -108,15 +110,61 @@
                         </div>
                       </div>
 </div>
-
+<SwiperSlider>
+              <template v-slot:title>
+                محصولات مرتبط
+              </template>
+              <a href="product.html" class="swiper-slide" v-for="item in 6" :key="item">
+                    <div class="slider__box">
+                        <div class="slider__image"><img :src="require(`../assets/img/slider/${item}.jpg`)" alt="" class="slider__img"></div>
+                        <div class="slider__title2">
+                            گوشی موبایل سامسونگ مدل نوت 20
+                        </div>
+                        <div class="slider__price">
+                            <span class="slider__compare-price">12,200,000</span>
+                            <span class="slider__total-price">12,400,000 تومان</span>
+                        </div>
+                        <span class="slider__discount">%6</span>
+                    </div>
+                </a>
+            </SwiperSlider>
+            
               </div>
+              
           </div>
+          <div class="product-details">
+            <div class="tab">
+                <div class="tab__items">
+                    <span class="tab__item tab__item--compare"
+                      :class="{ 'tab__item--is-active': activeTab === 'compare' }"
+                      @click="activeTab = 'compare'"
+                    >نقد و برسی</span>
+                    <span class="tab__item tab__item--featrues"
+                      :class="{ 'tab__item--is-active': activeTab === 'featrues' }"
+                      @click="activeTab = 'featrues'"
+                    >ویژیگی ها</span>
+                    <span class="tab__item tab__item--comments"
+                      :class="{ 'tab__item--is-active': activeTab === 'comments' }"
+                      @click="activeTab = 'comments'"
+                    >نظرات</span>
+                </div>
+                <div class="tab__sections">
+                    <CompareTab :style="activeTab === 'compare' ? 'display:block;': 'display:none;'" />
+                    <FeaturesTab :style="activeTab === 'featrues' ? 'display:block;': 'display:none;'" />
+                    <CommentsTab :style="activeTab === 'comments' ? 'display:block;': 'display:none;'" />
+                </div>
+            </div>
+        </div>
       </div>
   </main>
   </div>
 </template>
 
 <script>
+import SwiperSlider from '../components/SwiperSlider'
+import CompareTab from '../components/Tabs/CompareTab'
+import CommentsTab from '../components/Tabs/CommentsTab'
+import FeaturesTab from '../components/Tabs/FeaturesTab'
 import moment, { duration } from 'moment'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 import Multiselect from 'vue-multiselect'
@@ -125,7 +173,11 @@ import '../assets/css/modal.css'
 export default {
   name: "Product",
   components: {
-    Multiselect
+    Multiselect,
+    SwiperSlider,
+    CompareTab,
+    CommentsTab,
+    FeaturesTab
   },
   metaInfo: {
     title: 'نمایش محصول'
@@ -167,7 +219,14 @@ export default {
         { name: 'Sinatra', language: 'Ruby' },
         { name: 'Laravel', language: 'PHP' },
         { name: 'Phoenix', language: 'Elixir' }
-      ]
+      ],
+      slides: [
+        { img: require('../assets/img/slideshow/1.png') },
+        { img: require('../assets/img/slideshow/2.png') },
+        { img: require('../assets/img/slideshow/3.png') },
+        { img: require('../assets/img/slideshow/4.png') },
+      ],
+      activeTab: 'compare'
     }
     
   },
